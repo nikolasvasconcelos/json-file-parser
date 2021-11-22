@@ -1,0 +1,1 @@
+export const INVALID_FORMAT = "This is not a valid array format."
