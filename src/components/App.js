@@ -1,9 +1,9 @@
 import React, { Fragment, useState } from "react";
 import * as Yup from 'yup';
 import { useFormik } from 'formik';
-import formatter from 'json-format'
 import { parseBinaryTree } from "../utils/binTreeParser";
 import { INVALID_FORMAT } from "../utils/constants";
+import FileInput from "./FileReader";
 
 const initialValues = Yup.object({
   treeArray: Yup.array(INVALID_FORMAT).notRequired()
@@ -36,19 +36,8 @@ const App = () => {
 
   return (
     <Fragment>
-      <form onSubmit={handleSubmit} className="App">
         <h1>Array to Binary Tree</h1>
-        <input id="treeArray" name="treeArray" placeholder="Tree Array" onChange={handleChange} value={values.treeArray}/>
-        {errors?.treeArray && <span>{errors?.treeArray}</span>}
-        <button type="submit">Parse</button>
-      </form>
-      {binTree && <textarea disabled rows="10" cols="100" 
-        value={formatter(binTree, {
-            type: 'tab',
-            size: 1,
-          })
-        } 
-      />}
+        <FileInput />
     </Fragment>
   );
 }
