@@ -25,6 +25,8 @@ const FileInput = () => {
 
   const handleBinTree = useCallback(() => {
     try {
+      console.log(fileContent)
+      setBinTree()
       setBinTree(arrayToBinaryTree(JSON.parse(fileContent)))
     } catch (error) {
       console.error("Invalid content from file: ", error)
@@ -37,7 +39,7 @@ const FileInput = () => {
       <div className="my-3 flex justify-center px-7 pt-5 pb-6">
         <div className="space-y-1 text-center">
           <div className="flex flex-col text-sm text-gray-600  mb-3">
-            <label for="file-upload" className="relative cursor-pointer bg-white rounded-md font-medium text-indigo-600 hover:text-indigo-500 ring-2 ring-offset-2 ring-indigo-500">
+            <label htmlFor="file-upload" className="relative cursor-pointer bg-white rounded-md font-medium text-indigo-600 hover:text-indigo-500 ring-2 ring-offset-2 ring-indigo-500">
               <span className="text-center">Upload a file</span>
               <input id="file-upload" name="file-upload" type="file" className="sr-only" accept=".txt" onChange={handleUpload} />
             </label>

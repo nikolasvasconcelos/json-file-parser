@@ -1,4 +1,9 @@
+import { useState } from "react";
+import { DEFAULT_TREE_LEVEL } from "../utils/constants";
+
 const useBinaryTree = () => {
+  const [deepestNode, setDeepestNode] = useState(DEFAULT_TREE_LEVEL)
+
   const getTreeDepth = (root) => {
     if (root === undefined) {
       return 0;
@@ -13,9 +18,13 @@ const useBinaryTree = () => {
     if (root === undefined) {
       return nextNode;
     }
+
+    if (root == null) {
+      return root
+    }
   
-    let leftDepth = getTreeDepth(root.left);
-    let rightDepth = getTreeDepth(root.right);
+    let leftDepth = getTreeDepth(root?.left);
+    let rightDepth = getTreeDepth(root?.right);
 
     if (leftDepth > rightDepth) {
       nextNode = findNode(root?.left, nextNode);
@@ -26,9 +35,21 @@ const useBinaryTree = () => {
     }
 
     return nextNode;
-}
+  }
 
-  return { findDeepestNode: findNode };
+  const findMaxDepth = (node, deepest = DEFAULT_TREE_LEVEL, level = 0) => {
+    if (node !== undefined) {
+      if (level > deepest.level) {
+        setDeepestNode({node: node?.id ?? null, level})
+      }
+
+      node?.left !== undefined && findNode(node.left, deepest, level + 1);
+      node?.right !== undefined && findNode(node.right, deepest, level + 1);
+    }
+    return deepest.level;
+  };
+
+  return { findDeepestNode: findNode, findMaxDepth, deepestNode };
 };
 
 export default useBinaryTree;

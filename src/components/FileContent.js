@@ -1,17 +1,17 @@
 import React, { useCallback, useEffect } from "react";
 import JSONInput from 'react-json-editor-ajrm'
 
-import { arrayToBinaryTree } from "../utils/binaryTreeUtils";
+import { jsonToBinaryTree } from "../utils/binaryTreeUtils";
 import useAppContext from "../hooks/useAppContext";
 import useBinaryTree from "../hooks/useBinaryTree";
 
 export const FileContent = () => {
   const {jsonBinTree, setBinTree} = useAppContext()
-  const {maxLevel, findDeepestNode} = useBinaryTree(jsonBinTree)
+  const {deepestNode, findMaxDepth} = useBinaryTree(jsonBinTree)
 
   useEffect(() => {
     if (jsonBinTree) {
-      findDeepestNode(jsonBinTree)
+      findMaxDepth(jsonBinTree)
     }
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [jsonBinTree])
@@ -19,22 +19,22 @@ export const FileContent = () => {
   const handleBinTree = useCallback(
     ({json}) => {
       try {
-        setBinTree(arrayToBinaryTree(JSON.parse(json)))
+        setBinTree(jsonToBinaryTree(JSON.parse(json)))
       } catch (error) {
-        console.error(error)
+        console.error(`Parsing`, error)
       }
     },
     [setBinTree],
   )
 
   return (
-    jsonBinTree && <div className="flex flex-col mx-auto w-min my-5">
-      <JSONInput
+    <div className="flex flex-col mx-auto w-min my-5">
+      {jsonBinTree && <JSONInput
         onBlur={handleBinTree}
         onChange={handleBinTree}
         placeholder={jsonBinTree}
-        height={maxLevel * 175}
-      />
+        height={deepestNode?.level * 200}
+      />}
     </div>
   )
 }
