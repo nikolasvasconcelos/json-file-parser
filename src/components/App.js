@@ -4,8 +4,8 @@ import { FileContent } from './FileContent';
 import FileInput from "./FileReader";
 
 const App = () => (
-  <div>
-    <h1>Process the input into a tree</h1>
+  <div className="w-min sm:w-screen flex flex-col justify-center align-middle">
+    <h1 className="text-2xl text-center flex-none font-semibold mb-2.5">Process the input into a tree</h1>
     <FileInput />
     <FileContent />
     <BinaryTreeOutput />

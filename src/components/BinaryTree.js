@@ -2,7 +2,7 @@ import React from 'react'
 
 export const BinaryTree = ({node, leftNode, rightNode, currentLevel, deepestLevel}) => {
 
-  const isDeepest = deepestLevel === currentLevel
+  // const isDeepest = deepestLevel === currentLevel
 
   return (
     <div>
