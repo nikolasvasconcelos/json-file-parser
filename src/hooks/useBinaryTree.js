@@ -1,31 +1,23 @@
-import { useCallback, useEffect, useState } from 'react';
+import { useState } from 'react';
+import { DEFAULT_TREE_LEVEL } from '../utils/constants';
 
-const useBinaryTree = (binaryTree) => {
-  const [maxLevel, setMaxLevel] = useState(-1)
+const useBinaryTree = () => {
+  const [deepestNode, setDeepestNode] = useState(DEFAULT_TREE_LEVEL)
 
-  const findDeepestNode = useCallback(
-    (root,level) => {
-      if (root != null) {
-        findDeepestNode(root.left, ++level);
-      
-        if (level > maxLevel) {
-          console.log(level, maxLevel)
-          setMaxLevel(level)
-        }
-        findDeepestNode(root.right, level);
+  const findNode = (node, deepest = DEFAULT_TREE_LEVEL, level = 0) => {
+    if (node !== undefined) {
+      if (level > deepest.level) {
+        setDeepestNode({node: node?.id ?? null, level})
       }
-    },
-    [maxLevel],
-  )
+  
+      node?.left !== undefined && findNode(node.left, deepest, level + 1);
+      node?.right !== undefined && findNode(node.right, deepest, level + 1);
+    }
+  
+    return deepest.level;
+  };
 
-  useEffect(() => {
-    binaryTree && findDeepestNode(binaryTree, 0)
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [binaryTree])
-
-  console.log(maxLevel)
-
-  return { maxLevel };
+  return { maxLevel: deepestNode.level, findDeepestNode: findNode };
 };
 
 export default useBinaryTree;
