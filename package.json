@@ -15,7 +15,8 @@
     "web-vitals": "^1.0.1"
   },
   "scripts": {
-    "start": "craco start"
+    "start": "craco start",
+    "test": "react-scripts test"
   },
   "eslintConfig": {
     "extends": [
