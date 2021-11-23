@@ -9,12 +9,12 @@ In this file there are 2 methods: `arrayToBinaryTree` and `jsonToBinaryTree`
 ### arrayToBinaryTree
 Converst the array that is read from the file input to a Binary Tree to be displayed in the TextArea below it
 
-![array to binary tree]('./images/array_to_bintree.jpeg')
+![array to binary tree](./images/array_to_bintree.jpeg)
 
 ### jsonToBinaryTree
 Converst the textarea's json input to a Binary Tree to update the Output section
 
-![json to binary tree]('./images/json_to_bintree.jpeg')
+![json to binary tree](./images/json_to_bintree.jpeg)
 ## Problem 2
 
 ### Style
