@@ -1,24 +1,24 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import useAppContext from '../hooks/useAppContext'
 import useBinaryTree from '../hooks/useBinaryTree'
 import { BinaryTree } from './BinaryTree'
 
 export const BinaryTreeOutput = () => {
   const {jsonBinTree} = useAppContext()
-  const {maxLevel, findDeepestNode} = useBinaryTree(jsonBinTree)
+  const {findDeepestNode} = useBinaryTree(jsonBinTree)
+  const [deepestNode, setDeepestNode] = useState(null)
 
   useEffect(() => {
-    console.log(jsonBinTree)
     if (jsonBinTree) {
-      findDeepestNode(jsonBinTree)
+      setDeepestNode(findDeepestNode(jsonBinTree, deepestNode))
     }
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [jsonBinTree])
 
   return (
-    jsonBinTree && <div>
+    jsonBinTree && <div className="flex flex-col items-center border-2 border-gray-300 rounded-sm p-5 w-auto mx-auto shadow-md">
       <h1>Output</h1>
-      <BinaryTree node={jsonBinTree} currentLevel={0} deepestLevel={maxLevel} />
+      <BinaryTree node={jsonBinTree} currentLevel={0} deepestLevel={deepestNode} />
     </div>
   )
 }

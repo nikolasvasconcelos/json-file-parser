@@ -1,14 +1,33 @@
-import React from 'react'
+import React, { useCallback } from 'react'
 
 export const BinaryTree = ({node, leftNode, rightNode, currentLevel, deepestLevel}) => {
 
-  // const isDeepest = deepestLevel === currentLevel
+  const isDeepest = deepestLevel === node
+
+  const getPosition = useCallback(
+    () => {
+      if (leftNode) {
+        return 'self-start'
+      } else if (rightNode) {
+        return 'self-end'
+      } else {
+        return 'items-center'
+      }
+    },
+    [leftNode, rightNode],
+  )
 
   return (
-    <div>
+    <div className={`flex flex-col text-center rounded-sm p-2 mx-10 mx-auto shadow-md ${getPosition()} ${isDeepest ? 'border-green-500 border-2' : ' border border-gray-300'}`}>
       {`${node?.id ?? " "}`}
-      {node?.left !== undefined && <BinaryTree deepestLevel={deepestLevel} leftNode node={node.left} currentLevel={currentLevel + 1} />}
-      {node?.right !== undefined && <BinaryTree deepestLevel={deepestLevel} rightNode node={node.right} currentLevel={currentLevel + 1} />}
+      <div className="flex flex-row align-middle mx-auto">
+        <div>
+          {node?.left !== undefined && <BinaryTree deepestLevel={deepestLevel} leftNode node={node.left} currentLevel={currentLevel + 1} />}
+        </div>
+        <div>
+          {node?.right !== undefined && <BinaryTree deepestLevel={deepestLevel} rightNode node={node.right} currentLevel={currentLevel + 1} />}
+        </div>
+      </div>
     </div>
   )
 }
