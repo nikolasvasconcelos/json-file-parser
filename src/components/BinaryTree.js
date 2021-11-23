@@ -18,7 +18,7 @@ export const BinaryTree = ({node, leftNode, rightNode, currentLevel, deepestLeve
   )
 
   return (
-    <div className={`flex flex-col text-center rounded-sm p-2 mx-10 mx-auto shadow-md ${getPosition()} ${isDeepest ? 'border-green-500 border-2' : ' border border-gray-300'}`}>
+    <div className={`flex flex-col text-center rounded-sm p-2 m-3 shadow-md ${getPosition()} ${isDeepest ? 'border-green-500 border-2' : ' border border-gray-300'}`}>
       {`${node?.id ?? " "}`}
       <div className="flex flex-row align-middle mx-auto">
         <div>

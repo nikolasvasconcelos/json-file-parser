@@ -16,7 +16,7 @@ export const BinaryTreeOutput = () => {
   }, [jsonBinTree])
 
   return (
-    jsonBinTree && <div className="flex flex-col items-center border-2 border-gray-300 rounded-sm shadow-md flex-1 mx-10">
+    jsonBinTree && <div className="flex flex-col items-center border-2 border-gray-300 rounded-sm shadow-md flex-1 mx-10 mb-5">
       <h1 className="text-xl text-gray-900 my-10">Output</h1>
       <BinaryTree node={jsonBinTree} currentLevel={0} deepestLevel={deepestNode} />
     </div>

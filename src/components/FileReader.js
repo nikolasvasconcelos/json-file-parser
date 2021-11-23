@@ -25,7 +25,6 @@ const FileInput = () => {
 
   const handleBinTree = useCallback(() => {
     try {
-      console.log(fileContent)
       setBinTree()
       setBinTree(arrayToBinaryTree(JSON.parse(fileContent)))
     } catch (error) {

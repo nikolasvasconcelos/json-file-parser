@@ -5,7 +5,6 @@ export const arrayToBinaryTree = (treeArray) => {
     throw Error(INVALID_FORMAT)
   }
   let tree = {}
-  console.log(`ARRAY:`,treeArray)
   treeArray.forEach((node, index) => {
     switch (index) {
       case 0:
@@ -29,13 +28,11 @@ export const arrayToBinaryTree = (treeArray) => {
 }
 
 export const jsonToBinaryTree = (jsonTree) => {
-  console.log(jsonTree, Object.keys(jsonTree))
   if (Object.keys(jsonTree)?.length > 3) {
     throw Error(INVALID_FORMAT)
   }
   let tree = {}
   Object.values(jsonTree).forEach((node, index) => {
-    console.log(node, index)
     switch (index) {
       case 0:
         if (typeof node === "string" || typeof node === "number") {
