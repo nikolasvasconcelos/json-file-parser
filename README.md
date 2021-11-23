@@ -34,7 +34,7 @@ Instead of the textarea html element, the chosen component as the [JSON Input](h
 
 > There are no special steps for Problems 2 and 3
 
-## Problem
+## Problem 3
 
 ![problem 3 code](./images/problem3_code.jpeg)
 ![problem 3 screenshot](./images/problem3_print.jpeg)
