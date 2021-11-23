@@ -1,9 +1,9 @@
 import React, { useCallback, useState } from 'react'
 import useAppContext from '../hooks/useAppContext'
-import { parseBinaryTree } from '../utils/binTreeParser'
+import { arrayToBinaryTree } from '../utils/binaryTreeUtils'
 
 const FileInput = () => {
-  const {setFileInput, setBinTree} = useAppContext()
+  const {setBinTree} = useAppContext()
   const [fileContent, setFileContent] = useState()
 
   const handleUpload = useCallback(
@@ -23,12 +23,11 @@ const FileInput = () => {
 
   const handleBinTree = useCallback(() => {
     try {
-      setBinTree(parseBinaryTree(JSON.parse(fileContent)))
-      setFileInput(fileContent)
+      setBinTree(arrayToBinaryTree(JSON.parse(fileContent)))
     } catch (error) {
-      console.error("Invalid content from file")
+      console.error("Invalid content from file: ", error)
     }
-  }, [fileContent, setFileInput, setBinTree])
+  }, [fileContent, setBinTree])
 
   return (
     <div>

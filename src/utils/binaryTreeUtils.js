@@ -1,6 +1,6 @@
 import { INVALID_FORMAT } from "./constants"
 
-export const parseBinaryTree = (treeArray) => {
+export const arrayToBinaryTree = (treeArray) => {
   if (treeArray?.length > 3 || !treeArray[0]) {
     throw Error(INVALID_FORMAT)
   }
@@ -13,10 +13,10 @@ export const parseBinaryTree = (treeArray) => {
         }
         break;
       case 1:
-          tree.left = !!node ? parseBinaryTree(node) : null
+          tree.left = !!node ? arrayToBinaryTree(node) : null
         break;
       case 2:
-          tree.right = !!node ? parseBinaryTree(node) : null
+          tree.right = !!node ? arrayToBinaryTree(node) : null
         break;
       default:
         break;

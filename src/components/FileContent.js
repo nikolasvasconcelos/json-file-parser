@@ -1,18 +1,16 @@
 import React, { useCallback } from "react";
 import JSONInput from 'react-json-editor-ajrm'
 
-import { parseBinaryTree } from "../utils/binTreeParser";
+import { arrayToBinaryTree } from "../utils/binaryTreeUtils";
 import useAppContext from "../hooks/useAppContext";
 
 export const FileContent = () => {
   const {jsonBinTree, setBinTree} = useAppContext()
 
-  console.log(jsonBinTree)
-
   const handleBinTree = useCallback(
     ({json}) => {
       try {
-        setBinTree(parseBinaryTree(JSON.parse(json)))
+        setBinTree(arrayToBinaryTree(JSON.parse(json)))
       } catch (error) {
         console.error(error)
       }
@@ -21,7 +19,7 @@ export const FileContent = () => {
   )
 
   return (
-    <JSONInput
+    jsonBinTree && <JSONInput
       onChange={handleBinTree}
       placeholder={jsonBinTree}
     />
