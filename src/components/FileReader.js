@@ -34,7 +34,7 @@ const FileInput = () => {
   }, [fileContent, setBinTree])
 
   return (
-    <div className="flex flex-col items-center border-2 border-gray-300 rounded-sm py-5 px-28 w-min mx-auto shadow-md">
+    <div className="flex flex-col flex-1 items-center border-2 border-gray-300 rounded-sm py-5 px-28 w-min shadow-md mx-auto mb-10">
       <h1 className="text-xl text-gray-900">Tree Source</h1>
       <div className="my-3 flex justify-center px-7 pt-5 pb-6">
         <div className="space-y-1 text-center">

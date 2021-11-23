@@ -7,8 +7,10 @@ const App = () => (
   <div className="w-min sm:w-screen flex flex-col justify-center align-middle">
     <h1 className="text-2xl text-center flex-none font-semibold mb-2.5">Process the input into a tree</h1>
     <FileInput />
-    <FileContent />
-    <BinaryTreeOutput />
+    <div className="flex flex-col sm:flex-row align-middle">
+      <FileContent />
+      <BinaryTreeOutput />
+    </div>
   </div>
 );
 

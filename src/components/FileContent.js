@@ -28,12 +28,13 @@ export const FileContent = () => {
   )
 
   return (
-    <div className="flex flex-col mx-auto w-min my-5">
+    <div className="flex flex-col item-center flex-1  mx-10">
       {jsonBinTree && <JSONInput
         onBlur={handleBinTree}
         onChange={handleBinTree}
         placeholder={jsonBinTree}
         height={deepestNode?.level * 200}
+        width="100%"
       />}
     </div>
   )
