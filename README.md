@@ -28,6 +28,7 @@ To keep the implementation as simple as possible, the file input allows only `.t
 ### JSON text input
 Instead of the textarea html element, the chosen component as the [JSON Input](https://www.npmjs.com/package/react-json-editor-ajrm) because it's easy to use and has been maintained recently. It also displays json errors by itselft.
 
+> There are no special steps for Problems 2 and 3
 ## Running the project
 
 In the project directory, you can run:
