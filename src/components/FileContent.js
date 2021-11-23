@@ -28,7 +28,7 @@ export const FileContent = () => {
   )
 
   return (
-    <div className="flex flex-col item-center flex-1  mx-10">
+    <div className="flex flex-col item-center flex-1 mx-10">
       {jsonBinTree && <JSONInput
         onBlur={handleBinTree}
         onChange={handleBinTree}
