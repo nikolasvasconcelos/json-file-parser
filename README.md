@@ -6,6 +6,7 @@ The Problem 1 of the tech test is implemented in `src/utils/binaryTreeUtils.js`
 
 In this file there are 2 methods: `arrayToBinaryTree` and `jsonToBinaryTree`
 
+![problem 1 code](./images/problem1_print.jpeg)
 ### arrayToBinaryTree
 Converst the array that is read from the file input to a Binary Tree to be displayed in the TextArea below it
 
@@ -16,6 +17,9 @@ Converst the textarea's json input to a Binary Tree to update the Output section
 
 ![json to binary tree](./images/json_to_bintree.jpeg)
 ## Problem 2
+
+![problem 2 code](./images/problem2_code.jpeg)
+![problem 2 screenshot](./images/problem2_print.jpeg)
 
 ### Style
 
@@ -29,6 +33,11 @@ To keep the implementation as simple as possible, the file input allows only `.t
 Instead of the textarea html element, the chosen component as the [JSON Input](https://www.npmjs.com/package/react-json-editor-ajrm) because it's easy to use and has been maintained recently. It also displays json errors by itselft.
 
 > There are no special steps for Problems 2 and 3
+
+## Problem
+
+![problem 3 code](./images/problem3_code.jpeg)
+![problem 3 screenshot](./images/problem3_print.jpeg)
 ## Running the project
 
 In the project directory, you can run:
